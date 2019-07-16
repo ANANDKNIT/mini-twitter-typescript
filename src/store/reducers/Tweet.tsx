@@ -1,10 +1,17 @@
 import * as ActionTypes from '../actions/Tweet';
 
-const InitialState = {
-    commentMessages: [{id:'',value:''}]
+interface IInitialState {
+    item: { id: number, value: string }
+    id: number;
+    value: any;
+    type: string;
 }
 
-const TweetReducer = (state = InitialState, action: any) => {
+const InitialState = {
+    commentMessages: [{ id:0, value:'' }]
+}
+
+const TweetReducer = (state = InitialState, action: IInitialState) => {
     let newState;
     switch (action.type) {
         case ActionTypes.ADD_TWEET:
